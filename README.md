@@ -20,7 +20,7 @@ machine, you first need to install:
 * [openIMIS Web Application](https://github.com/openimis/web_app_vb) (optional, 
 but facilitates the insuree registration for testing of this component)
 
-### Installing
+### Installation
 
 To make a copy of this project on your local machine, please clone the repository.
 
@@ -28,28 +28,22 @@ To make a copy of this project on your local machine, please clone the repositor
 git clone https://github.com/openimis/imis_assign_photo_service_vb
 ```
 
-You can then build the solution.
+Then build the solution in Visual Studio.
 
-To execute the service and the associated controller, the Windows Administrator 
-account is required. 
-
-To start the Windows service execute the following command:
+With administrator priviledge, install the Windows service via the following command: (For the 64-bit version of the .NET Framework 4 or 4.5.*, the default path is C:\Windows\Microsoft.NET\Framework64\v4.0.30319\InstallUtil.exe.)
 
 ```
 InstallUtil AssignPhotoService.exe
 ```
 
-For the 64-bit version of the .NET Framework 4 or 4.5.*, the default path is
-C:\Windows\Microsoft.NET\Framework64\v4.0.30319\InstallUtil.exe .
+At this stage, the service is running on the local machine. In order to configure when and on which database the service should run, the Controller application should be used as follow:
 
-All configuration (database connection, schedule) is donned by using the Controller
-application, within the Settings form found by opening the menu from the task tray. 
-
-To start the Controller application execute the following command:
-
-```
-AssignPhotoController.exe
-```
+- Copy the file .\AssignPhotoController\bin\Debug\AssignPhotoController.exe into the same folder as AssignPhotoService.exe and AssignPhotoService.exe.config which is by default: .\AssignPhotoService\bin\Debug.
+- Open the Controller application AssignPhotoController.exe.
+- From the system tray, right click on the Assign Photo icon.
+- In the new window, enter the database details and time details for the service to run.
+- Apply the changes.
+- Restart the service.
 
 ## Deployment
 
